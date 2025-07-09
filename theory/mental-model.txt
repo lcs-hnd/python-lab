@@ -1,0 +1,14 @@
+can you loop throug the data at once?
+- likely O(n)
+
+do you need to compare all pairs?
+- likely O(n^2)
+
+are you sorting?
+- sorting alone is O(n log n)
+
+do you only neeed one answer (eg min, max)
+- often achieved with O(1) auxiliary space
+
+can you shrink the problem as you go (eg divive in half)?
+- binary search O(log n)
