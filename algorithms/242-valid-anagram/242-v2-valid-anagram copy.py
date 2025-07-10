@@ -1,3 +1,5 @@
+# Valid Anagram V2
+
 str1 = "racecar"
 str2 = "acecarr"
 
@@ -17,4 +19,6 @@ def isAnagram(str1, str2):
   return string_map1 == string_map2 # returning the dictionary comparison
 
 print(isAnagram(str1, str2))
+
+
 

@@ -1,6 +1,7 @@
+# Valid Anagram V1
+
 # anagrams are strings with the same characters
 # assuming lowercase in this scenario
-
 str1 = "racecar"
 str2 = "acecarr"
 
@@ -23,4 +24,5 @@ def isAnagram(str1, str2):
   if string_map1 == string_map2:
     return True
   return False
+
 
