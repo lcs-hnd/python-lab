@@ -1,6 +1,7 @@
 # built in type (class)
-# when range() is used the classes constructor is called to create an object
+# when range() is used the constructor is called to create an object
 # produces each number on demand as you iterate unlike a list
+# frequently used with len(), range(len(item))
 
 sequence = range(5)
 
