@@ -1,0 +1,72 @@
+given an array with of strings
+
+has table keys are O(1) lookup time 
+used the to solve anagrams in O9n) time complexity last time (wait no this was for two Sum)
+
+this time multiple sublists are created or should be assumed to be at times
+
+arrays can only contains one data type aren't as flexible as lists 
+thye are however more memory efficient due to this nature
+
+if we were dealing with numbers numpy would be better due to the vectorized nature 
+
+im thinking of looping through each array item 
+when looping through an array item will it go throgh each character of the string or would that necessitate nested looping?
+
+im going to assume the first loop with go through just the word itself not each letter 
+
+what i mean by this is that a for loop going through an array of strings would consider the entire word and not each chracter of the word
+
+if we sort each string you can equate the compare the strings without looping through each character,
+wait no you still have to do that while sorting i think
+furthermore this would require a list since strings are immutable 
+
+if we use a count based strategy we could either use hash tables or arrays for this
+you can represent this with the data typple tuple which are immutable 
+ech letter would be counted
+
+in order to group the anagrams you would check if they either share the same tuples grouped in the array or hash table
+i guess if you used a hash table you could make the keys the letters for instant lookup, if that passed you could then go into values to ensure it matches
+this would be similar to checking len beforehand, unsure of which would be better
+perhaps len check beforehand is better and then hash table keys are the count instead, 
+actually that might not work since if you have a word with the exact count of letters and same count you owuld atill have to  heck the letter thanselves match so you would have to look into the hsh table values too so O(n) not O(1)
+
+sorting costs O(n log n ) per word where where (n is word length)
+
+if you have k words then the total cost is O(kn log n)
+fine for most cases but not optimal
+
+why is sorting O(n log n)?
+
+// 
+
+define hash table
+loop through the words
+for each word define a list of 26 items set to 0 to begin with
+nested loop going through the word's chars
+increment the corresponding item in the count depending the on the letter
+this is done with ord() where ord('a') is used to anchor and an alphabet indices map is created
+key is defined as a tuple(count) due to the fact lists aren't hashable
+if condition checking for the existence of key in the hash table
+append the word to the list if true, create a new one if not true with the word in it to start
+
+
+// 
+
+define a hash table for signature mapping 
+loop through the given array
+sort the letters and join them back in a string
+assign the new string to a future key
+create the future key with condition for its existence in the hash table
+append to the list if true, create a new list with the word if not
+return a list of the values in the hash table 
+
+//
+
+importing a subclass from collections
+smarter version of dictionary
+hash table is defined with defaultdict and list class is passed to define default values
+loop through the words
+define a key using a one liner method with sorted and join, sort the letter and join them back into a string
+with this key now defined keys within the defined hash table can now be directly appended to even if not existant
+groups[key].append(word)

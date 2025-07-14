@@ -1,0 +1,42 @@
+time complexity
+  how many operations (roughly) an algorithm performs
+
+space complexity
+  how much extra memory (roughly) an algorithm needs
+
+often times we focus on growth rate becase we want to know how an algorithm scales
+a small diff for a list of 10 items is huge for a list of 10 million items
+
+O(1) - constant time - the number of operation doesn't change regardless of input size
+  eg: accessing an element in a list by its index // list[0]
+
+O(log n) - logarithmic time - the number of operations increases very slowly as n grows
+typically seen in algos that repeatdly divide a problem in half (binary search)
+  eg: finding an itme ina balanced binary search tree
+
+O(n) - linear time - the number of operations grows proportionally to input size
+  eg: iterating through all elements in a list once 
+
+O(n log n) - linearithmic time - better than quadratic but worse than linear
+  eg: merge sort, heap sort, quick sort
+
+O(n^2) - quadratic time - operations growing with the square of the input size
+often seen in nested loops iterating over an entire input 
+  eg: bubble sort, insertion sort, selection sort
+
+O(2^n) - exponential time - the number of operations double with each addition to the input size
+  eg: brute force solutions to combinatorial problems, finding all the subsets
+
+O(!n) - factorial time - extremely slow
+ eg: brute force solutions to the travelling salesperson problem
+
+> time comp rules
+
+simple operations/statements : assume O(1)
+
+x = 5
+print(list[5])
+a + b
+
+loops : usually 
+
