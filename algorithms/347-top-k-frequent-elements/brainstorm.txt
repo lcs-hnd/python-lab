@@ -1,0 +1,20 @@
+# returning the most frequent element given an array and integer
+
+// 
+
+define hash table (map)
+loop through the array of integers
+if a value is in the hash table increment its value
+if not then define its value as one
+defined a sorted hash table with sorted
+use items() to get tuple key value pairs in order to allow for sorting based on x[1]
+a dict's keys alone (map.keys()) do not give 
+bring in lambda function creation, this temp function concisely defiens the sorting mechanism key=lambda x: x[1]
+reverse the order, (not really needed i guess but then you would have to slice differently [-k:])
+return a list, in my case i used list comprehension
+(expression) define your value to be added, in this case it's the 0th item in the tuple because its the key of the dict and that's the number 
+(loop) for item in 
+(sequence) sorted_map[:k] (in my case, if you didn't reverse the slice would be diff) 
+
+//
+
