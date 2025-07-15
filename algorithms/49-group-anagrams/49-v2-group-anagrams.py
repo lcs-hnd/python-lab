@@ -1,3 +1,5 @@
+# 49 v2 - group anagrams
+
 strs = ["act","pots","tops","cat","stop","hat"]
 
 def groupAnagrams(strs):

@@ -1,4 +1,4 @@
-# Two Sum V1
+# 1 v1 - two sum
 
 # not using same element twice
 # assume one answer 
