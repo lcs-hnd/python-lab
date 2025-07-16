@@ -1,0 +1,11 @@
+a design question, rather than encrypting or compressing
+this is just serialization
+
+what can go wrong?
+- delimiters
+- empty strings
+- unicode & special characters
+
+
+gotta choose an encoding scheme.
+- length-prefixing? number of characters with a delimiter

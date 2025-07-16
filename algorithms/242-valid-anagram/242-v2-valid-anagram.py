@@ -1,5 +1,4 @@
 # 242 v2 - valid anagrams
-
 str1 = "racecar"
 str2 = "acecarr"
 

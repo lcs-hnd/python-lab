@@ -1,5 +1,4 @@
 # 217 v1 - contains duplicate
-
 # given array of integers return true if any value appears at 
 # least twice in the array, return false if all are distinct
 

@@ -1,5 +1,4 @@
 # 242 v1 - valid anagrams
-
 # anagrams are strings with the same characters
 # assuming lowercase in this scenario
 str1 = "racecar"
