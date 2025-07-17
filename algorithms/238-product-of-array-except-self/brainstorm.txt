@@ -1,0 +1,11 @@
+given an array of numbers `nums`
+return an array `answer` where `answer[i]` = product of all of `nums` elements except `nums[i]`
+
+the prodcut of any prefix or suffix of `nums` is guaranteed to fit in a 32-bit integer
+write an algorigthm that runs in O(n) time without the division operation
+
+\\ 
+
+the selected element in the array becomes the exception
+everything else is multiplied
+

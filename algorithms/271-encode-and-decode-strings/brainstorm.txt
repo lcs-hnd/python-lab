@@ -9,3 +9,62 @@ what can go wrong?
 
 gotta choose an encoding scheme.
 - length-prefixing? number of characters with a delimiter
+
+\\ 
+
+everything is encoded into a length_integer#string format
+comparing 
+
+the integer can be more than one character long depending on the string
+we make use of int([bracket:slicing]) to pull the integer
+the stop point for the slice is the delimiter 
+
+// v1 
+
+while loop used in order to manually control i and increment it variably
+
+scanning for # with `while s[j] != '#'
+  we need to know where the metadata ends and the payload begins
+  the length prefix cuold be multiple digits "13#gotta#test#it"
+    can't assume a fixed width length, a dynamic scan is needed `s[i:j]`
+
+slicing with s[j+1 : j+1+length]
+  once you know the separator index (j)
+  length is the amount of characters that make up the string
+
+
+
+i represents the scan start
+j is the position of the next separator
+
+// v2 state collapse, the re-use of I
+
+
+
+class Solution:
+
+    def encode(self, strs: List[str]) -> str:
+        encoded = ""
+
+        for string in strs:
+            encoded += f"{len(string)}#{string}"
+
+        return encoded
+
+    def decode(self, s: str) -> List[str]:
+        decoded = []
+
+        i = 0
+
+        while i < len(s):
+            j = i
+
+            while s[j] != "#":
+                j += 1
+            
+            length = int(s[i:j])
+            decoded.append(s[j + 1: j + length + 1])
+            i = j + 1 + length
+        
+        return decoded
+

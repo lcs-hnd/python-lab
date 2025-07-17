@@ -9,19 +9,20 @@ def encode(strs):
   
   return encoded
 
-def decode(str):
-  decoded = []
+def decode(s):
+  decoded = [] # define the list
+  i = 0 # starting character
 
-  i = 0
-  while i < len(str):
-    j = i
+  while i < len(s): # loop while the starting character isn't at the end of the payload
+    j = i # redefine the separator to the new start
 
-    while str[j] != "#": # if the character at this index isn't # add 1 to j every loop
+    while s[j] != "#": # increment the separator's position until its value is equal to the expected delimiter
       j += 1
 
-    length = int(str[i:j]) # string length is the integer of the this slice? still confusing at this point
-    decoded.append(str[j+1:j+1+length]) # unsure of how this string extraction is performed, i get that it's a slice but this is complicated to me
-    i = j + 1 + length # couldn't you define this before the previous line in order to use i in the place of j + 1 + length?
+    length = int(s[i:j]) # pull the metadata (string's length) kept from the starting character until the separator index (delimiter # `j`)
+    decoded.append(s[j+1:j+length+1]) # append a slice from the string's beggining (1 position past the separator index (delimiter) (j + 1))
+    # until the start of the next section's metadata (string_length_integer`delimiter`)
+    i = j + 1 + length # redefine the start of the section as the first chacter of the next metadata
     
   return decoded
 
