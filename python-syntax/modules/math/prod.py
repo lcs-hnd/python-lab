@@ -1,3 +1,6 @@
+# calculates the product of all the elements in the inputted iterable
+# default start value is 1
+
 # 238 v2 - product of array except self
 # still O(n*2) but with a different approach
 

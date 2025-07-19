@@ -13,7 +13,7 @@ def decode(s):
   decoded = [] # define the list
   i = 0 # starting character
 
-  while i < len(s): # loop while the starting character isn't at the end of the payload
+  while i < len(s): # loop until a character is past all the characters of the encoded string
     j = i # redefine the separator to the new start
 
     while s[j] != "#": # increment the separator's position until its value is equal to the expected delimiter
