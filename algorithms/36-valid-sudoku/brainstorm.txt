@@ -1,0 +1,34 @@
+# each row must contain the digits 1-9 without repetition
+# each column must contain the digits 1-9 without repetition
+# each of the nine 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition
+
+# thought process
+# nested lists are created, one list with 9 more lists inside. inner lists contain 9 integers
+# at the start of a sudoku game the inner lists are generated with all 0's inside representing an empty slot while the taken ones are redefined
+# a possible sudoku game must not have any repeating numbers (apart from 0) within any inner lists, rows, or columns
+
+# square index positions
+# 012  
+# 345 
+# 678 
+
+# start with a check on the row
+# this would be a check on 3 separate lists, each on their 012 index positions. all three should not have repeating numbers once checked. also all value returned must be integers and not 0.
+# eg list[0][0] list[0][1] list[0][2], this would be the first three numbers of the first row 
+# eg list[1][0] list[1][1] list[1][2], this would be the next three numbers of the second row, they would pertain to the second list in the 9 lists
+
+# first row
+# list[0][0] list[0][1] list[0][2]
+# list[1][0] list[1][1] list[1][2]
+# list[2][0] list[2][1] list[2][2]
+
+# in order to check columns then you would do list[0][0] list[3][3] list[6][6], first column of the sudoku on the left
+
+# first column
+#  list[0][0] list[0][3] list[0][6] 
+#  list[3][1] list[3][4] list[3][7] 
+#  list[6][2] list[6][5] list[6][8]  
+
+# both types of checks (row, column) rely on the list changing but the general pattern for the check remains the same (0,3,6)(1,4,7)(2,5,8)
+
+# only filled cells need to be validated, could use an if condition and define empty cells as soemthing like string "empty" or boolean false

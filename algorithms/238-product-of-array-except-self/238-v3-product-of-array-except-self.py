@@ -6,15 +6,16 @@ def prodExceptSelf(nums):
   n = len(nums)
   # initialize the result array with 1s
   # res[i] will store the final product except self, and 1 is neutral in multiplication
-  res = [1] * n
+  res = [0] * n
 
   # initialize prefix as 1
   # there are no elements to the left, so the prefix should be neutral to start with
-  prefix = 1 
+  prefix = 1
   
   # a left to right pass to build the prefix products
   for i in range(n):
     res[i] = prefix
+    # res 3 = prefix 
     prefix *= nums[i]
 
   suffix = 1

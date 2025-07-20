@@ -9,3 +9,53 @@ write an algorigthm that runs in O(n) time without the division operation
 the selected element in the array becomes the exception
 everything else is multiplied
 
+part 1 - if the goal is the product of all except self, that result is then assigned into self's index position, some way of skipping over self's multiplication is needed.
+
+part 2 - in this solution the len of nums is declared as n for clarity. i am unsure if this is a waste of space complexity or if it's a worthy tradeoff from calling len multiple times everywhere needed
+
+part 3 - a premade list is established by declaring a list with a singular item [1] and then multiplying it by the len of nums `n`. i am unsure if this strategy has a name but it would be good to know.
+
+part 4 - prefix is defined as a neutral integer multiplier `1`. unsure if this could be avoided for better space complexity.
+
+part 5 - a for loop is established for prefix. range is used to create an 'iterator object?(i like being specific so please be critical of all terminology)' that gives you the object saving space complexity when going through the different possible index values of nums.
+
+part 6 - within the prefix for loop res[i] assigns a value to the given index position of that list that is equal to prefix's current value. i say current because it is dynamic.
+
+part 7 - the dynamic prefix value is dynamic because it is multiplied by the value of a given index position in the list/array(not sure of what data structure they give), `i`, currently defined by the loop.
+
+part 8 - this prefix loop continues until there are no more iterators to go through in the range object created out of value n (len of nums).
+
+part 9 - (this part will be longer) this means, in a given loop where nums is [1, 2, 3, 4], res would begin as [1, 1, 1, 1]. when the prefix loop begins range is (0,3), the loop iterates through 4 numbers that are used as index values. at 0 the first value of res is set to 1 and prefix (currently 1) is multiplied by the value of nums[0] which in this case is 1.
+at this point (the end of the loop of i = 0) we have prefix = 1 and res = 1 1 1 1 (im skipping the commas and bracket here for ease of typing)
+then res[1] is set to 1 and prefix multiplied by 2 now. so now (end of i = 1 loop) we have prefix = 2 and res = 1 1 1 1
+then res[2] becomes 2 and the prefix is multiplied by nums[2] which is 2*3. so now at the end of i = 2 loop we have prefix = 6 and res = 1 1 2 1
+then res[3] becomes 6 and the prefix is multiplied by nums[3] which is 6*4. so now a the end of i = 3 we have prefix = 24 and res = 1 1 2 6 
+
+//
+
+res = len(nums)
+prefix = 1
+
+res is initialized as a list of 1's. it will hold the final product for each element in nums 
+prefix is initialized to 1. it will hold the cumulative product of all elements to the left of the current index i in nums
+
+
+for i in range(len(nums)):
+ res[i] = prefix
+ prefix *= nums[i]
+
+the loop iterates over the nums array. through each iteration we are processing a new index i 
+for each i, the current value of prefix is assigned to res[i] // prefix represents the cumulative product of all numbers to the left of index i. for the first iteration res[0] is set to 1
+after updating res, prefix is then updated by multiplying it with nums[i]. this prepares it for the next iteration where prefix will represent the cumulative product of all numbers to the left of the next index
+at the end of this loop res will hold all the products to the left of each index
+
+suffix = 1 
+for i in reversed(range(len(nums))):
+ res[i] *= suffix
+ suffix *= nums[i]
+
+new loop started. now iterating backwards over the array. 
+on each iteration the current value of res[i] is multiplied by the suffix. this updates it to include the product of left*right passes
+after updating res i suffix is multiplied by nums i and prepared just like prefix did
+
+... // did some more thinking about this pattern over the past few days.
