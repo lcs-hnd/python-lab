@@ -32,3 +32,15 @@
 # both types of checks (row, column) rely on the list changing but the general pattern for the check remains the same (0,3,6)(1,4,7)(2,5,8)
 
 # only filled cells need to be validated, could use an if condition and define empty cells as soemthing like string "empty" or boolean false
+
+# redesign
+
+# we know the board is a 9x9 grid, instead of 0 for cells we use ( . )
+# instead of lists we use sets
+
+# "box check trick"
+# to indentify which of the nine 3x3 grid a cell (r, c) belongs to you can map any (row, col) coord to a box index from 0 to 8 with:
+ # box_index = (r // 3) * 3 + (c // 3) 
+ # cell (0, 0): (0 // 3) * 3 + (0 // 3) =  0 * 3 + 0 = box 0
+
+# '//' is floor division. it ignores any remainders, and returns only the whole number.
