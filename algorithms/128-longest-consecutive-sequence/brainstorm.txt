@@ -11,3 +11,9 @@ wait nvm i read the problem wrong, we're looking for a consecutive sequence like
 
 in this case we have to consider how to do this without ordering the list in one pass because of O(n) time
 
+turn the unordered list of integers into a set with set()
+loop through the set and check if the current num - 1 is in it
+if it's not then that number in the set could be the start of a sequence
+when that's found proceed with by initilizing a count and the current number equal to the current iterator
+use a while loop and check for the current_num + 1 to update the size of the streak and count
+at the end return the longest streak with respect to the count using max to see which is higher, this will keep track of the highest streak so far without overwriting it with smaller ones
