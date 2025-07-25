@@ -44,3 +44,36 @@
  # cell (0, 0): (0 // 3) * 3 + (0 // 3) =  0 * 3 + 0 = box 0
 
 # '//' is floor division. it ignores any remainders, and returns only the whole number.
+
+what math operation turns 
+0 1 2 into 0
+3 4 5 into 1
+6 7 8 into 2
+
+floor division!
+
+
+/// what....
+
+The notation board[r][c] means pulling an item from a list that is inside another list. 
+r is the index for the outer list, and c is the index for the inner list. 
+The input for this function must be a list of lists for this to work.
+
+At first, it was weird to check rows[r] and cols[c] by themselves, because it's a different format from board[r][c].
+
+rows, cols, and boxes aren't part of the input
+they are the new sets we are building to track the numbers
+the sets are there to keep track of the numbers we've seen so far.
+
+Another key realization was about the sets themselves. 
+When the code checks rows[r], r is the index that points to a specific set within the rows list. 
+So, we are keeping track of each row, column, and box's contents in its own dedicated set.
+
+The if val == '.' continue condition handles empty cells. 
+The continue keyword doesn't exit the whole loop; it just skips the rest of the current iteration and moves on to the next cell. 
+This makes sense because we don't care about validating empty spots.
+
+Sets are collections of unique elements. This provides an inherent benefit: if you check for a number, you instantly know if it's a repeat.
+
+The overall process is to check if the current board digit is already inside rows[r], cols[c], or the specific box's set (which is found using the floor division formula). 
+If the digit is already in any of those sets, the Sudoku is invalid, and we return False.

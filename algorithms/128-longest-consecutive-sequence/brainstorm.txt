@@ -1,0 +1,13 @@
+unsorted array of integers nums is given
+need to find the longest sequence of consecutive elements and return its length
+this would require a single pass
+
+for each value add it to a temporary list
+if the next value is == to the same from before then add it to the list
+if not then define highest scrap the list and start another one with the current value
+
+wait no. if the value[n] is == to value[n - 1] then add 
+wait nvm i read the problem wrong, we're looking for a consecutive sequence like 1, 2, 3 ,4 not 1 ,1 ,1 ,1 
+
+in this case we have to consider how to do this without ordering the list in one pass because of O(n) time
+
