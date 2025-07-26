@@ -1,0 +1,29 @@
+if after 
+converting all uppercase letters into lowercase
+removing all non-alphanumeric characters
+the phrase reads the same forward as it does backwards 
+then it is a palindrome
+
+given string s return true if palindrome
+s consists of only printable ASCII characters
+
+// steps
+convert to lowercase
+remove non alphanumeric
+if string == reversed string return true else false
+
+// notes
+two pointers will save space
+create left pointer for start at index 0
+create right pointer to start at the end
+continue to loop through while left is less than right 
+  (less than?)
+move until on an alphanumeric character
+check for mismatch while ensuring a lowercase conversion first
+if not the same return false
+return true if the loop finishes without any mismatches
+
+// notes
+filtering and creating a new string while only adding the alphanumeric characters converted to lowercase
+on the go will use more space
+this would then be compared with reverse, two pointer preferred due to space complexity
