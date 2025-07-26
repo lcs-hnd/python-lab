@@ -1,0 +1,30 @@
+given array of integers `numbers`
+ it's one indexed
+ it's sorted in non-decreasing order
+
+find two elements such that they add up to a specific target
+let these two elements be numbers[index1] & numbers[index2]
+where 1 <= index1 < index2 <= numbers.length
+
+return the indices of the two elements
+"added by one as an integer array [index1, index2] of length 2"
+
+tests are generated such that there is one solution
+you may not use the same element twice
+algorithm must use O(1) extra space 
+
+// notes
+
+two pointer approach
+left and right initialized as first and last index positions
+while left less than right loop through 
+attain the sum of both values
+if equal to target return with + 1 in respect to 1 indexed expectation
+if greater look for smaller numbers, since pre sorted just reduce right by 1
+if smaller increase left for same reason ^
+
+O(1) extra space, boom.
+
+
+
+
