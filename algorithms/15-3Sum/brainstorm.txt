@@ -14,4 +14,19 @@ sort the array first to make it possible for the use of a two pointer approach
  this makes it easier to handle duplicate triplets
 loop through array with for loop, this will handle the first of the three numbers
 the next two can be handled with two pointer 
-the for loop 
+the for loop needs to end in case of a positive number, the list will be sorted
+ a first element cannot be positive as in a sorted case the next two will not add to 0
+ skip over any duplicates as well as long as you are past the initial index position
+define the two pointers with the second element position starting one after the first handled by the for loop
+the right pointer is at the end of the sorted array
+using a while loop check for a sum into 0
+ given this is found append onto the result list as we are looking for possibly multiple answers (triplet lists)
+ after it's important to mvoe the pointer to the right one (incrementing left by one)
+ on top of that duplicate elements should not be used so you can take care of that using a while loop within the if condition
+  the while loop should ensure that while left < right (to make sure to not go past the two pointer crossing)
+  and left is that same as left - 1 that left gets incremented by 1
+the remaining while conditions should move the right pointer down if the sum is larger than 0
+ because we would be looking for smaller numbers
+and to move the left up one if sum less than 0
+ looking for a bigger element within the two pointer
+res is return after all of it
