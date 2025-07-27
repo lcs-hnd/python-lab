@@ -1,0 +1,17 @@
+given integer array `nums`
+
+return all triplets
+[nums[i], nums[j], nums[k]]
+such that (i != j) & (j != k)
+and vi + vj + vk == 0
+
+the solution must not contain duplicate triplets
+the order of the output does not matter
+
+// notes
+
+sort the array first to make it possible for the use of a two pointer approach
+ this makes it easier to handle duplicate triplets
+loop through array with for loop, this will handle the first of the three numbers
+the next two can be handled with two pointer 
+the for loop 
