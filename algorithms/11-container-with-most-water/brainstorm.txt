@@ -1,0 +1,59 @@
+given integer array
+  height of length n
+there are n vertical lines drawn
+  such that the two endpoints of the i^th line are
+    (i,0) and (i, height[i])
+  
+// flawed attempt 
+
+def water(height):
+  sorted_height = sorted(height)
+  left = 0
+  right = len(sorted_height) - 1
+  current_max = 0
+
+  while left < right:
+    width = right - left
+    area = width * min(sorted_height[left], sorted_height[right])
+
+    if (area > current_max):
+      current_max = area
+      left += 1
+
+    elif (area <= current_max):
+      left += 1
+
+  return current_max
+
+print(water(height))
+
+\\ i realized part of the way in this inherently breaks the problem
+the width is dependant on the positions of the vertical lines from their unsorted format
+
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        left = 0
+        right = len(height) - 1
+        max_area = 0
+
+        while left < right:
+            width = right - left
+            area = width * min(height[left], height[right])
+            max_area = max(area, max_area)
+
+            if height[left] > height[right]:
+                right -=1
+            else:
+                left +=1
+
+        return max_area
+
+// my second answer ^
+
+the two pointer approach works great in this problem as suspected
+start left and right as iterators
+start a max area storage
+while left and right pointers havent met loop through and attain the area possible between the two current height pillars
+the pointers are moved based on their relational sizes
+the smaller one gives up its seat and the bigger one remains for the next area calculation
+max gets rid of a lot of lengthy if condition and shortens the entire equation by a lot
