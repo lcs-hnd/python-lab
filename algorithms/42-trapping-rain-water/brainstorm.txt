@@ -100,8 +100,24 @@ def water(height):
       
 
   return bucket
-
-
-
-
 print(water(height))
+
+
+// finally...
+
+kept going around trying to use 3 pointers and not moving the 2 pointers correctly
+by keeping track of the highest left and right bars seen you can check for possible water trappings
+
+define left 0 and left max 0 
+define right as the length of the given list and right max as 0 to start
+define a variable to add up the water bucket in this case
+while the left and right pointers haven't crossed..
+define the leftmax and right max every loop
+optionally define a minimum bar to avoid using min everytime you need to find the smallest of the two max bars
+pointers are greedily moved based on whichever current water level is higher
+  this is important as the lowest current water level is the bottleneck thus you move that pointer over to maybe find a taller wall and expand the trap
+if equal choose one to move,doesn't matter which as long as the right water level is added fro mthe side you move the pointer
+in this unordered list you cannot predict whether the height bar you're on is higher than the current max which means you might get a negative number
+in this case you avoid this by simply using max to compare 0 and the result
+when you attain a negative number it means that the current bar is a very high wall and therefore wouldn't be a hole in the first place
+so without max 0 in place you would run the risk of adding a negative number into the bucket thus getting the water kevek wrong 
