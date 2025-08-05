@@ -1,0 +1,15 @@
+  if right - 1 != left:
+      right +=1
+      lm = min(lm,prices[left])
+
+      profit = rm - lm
+    else:
+      left += 1
+  return profit
+  
+    lm = min(lm, p)
+    if right < len(prices) - 1:
+      right += 1
+      left += 1
+      max_profit = max(max_profit, prices[right] - lm)
+  return max_profit
