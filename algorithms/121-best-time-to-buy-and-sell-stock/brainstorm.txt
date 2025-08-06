@@ -6,10 +6,29 @@
     else:
       left += 1
   return profit
-  
+
     lm = min(lm, p)
     if right < len(prices) - 1:
       right += 1
       left += 1
       max_profit = max(max_profit, prices[right] - lm)
   return max_profit
+
+// debrief
+
+v1 uses the sliding window to solve the problem
+left and right (buy sell) are defined with 0th position and 1st position
+max profit is defined to continually track the highest possible profit
+while loop based on length of the input and right marker's position is created
+  so long as the right is less than inputs len than go through again
+  there's no -1 because it starts at position 1 
+if the selling price is greater than the current buying price then update the max profit given its bigger than the current max profit
+otehrwise set left market to the right one
+always increase right marker regardless
+return the max profit after the end of the loop
+
+v2 uses a for loop
+there are no left and right markers instead the min price is defined as the beggining of the list and max profit is tracked
+the list is sliced when refenred in the for loop as you dont iterate on the first value when measuring the potential profit
+the max profit is updated in accordance to the min price that follows behind whenever a new lower price is discovered
+  it's important it's updated after checking for a potential max profit
