@@ -1,0 +1,51 @@
+def alg(string):
+  tracker = 0
+  longest_substring = {}
+  length = 1
+  while tracker < len(string):
+    if string[tracker] not in longest_substring:
+      longest_substring[string[tracker]] = tracker
+      length = max(length, len(longest_substring))
+      tracker += 1
+    else:
+      tracker += 1
+      longest_substring.clear()
+  return length
+
+print(alg(f))
+
+def algo(s):
+  marker = 0
+  hash_map = {}
+  length = 0
+
+  while marker < len(s) - 1:
+      if s[marker] not in hash_map:
+          hash_map[s[marker]] = marker
+          length = max(length, len(hash_map))
+          marker += 1
+      else:
+          hash_map.clear()
+          hash_map[s[marker]] = marker
+          marker += 1
+  return length
+  
+print(algo(r))
+
+// v1
+
+using a sliding window that adapts to the size of the possible substrings in the problem
+left, length, and a hash map are defined
+to account for all possibilities left is begins at the first index and length is started as 0 in case a passed string has no characters
+the hash map will be used to keep track of the letters see... im actually not fully sure of what it exactly keeps track of. 
+a for loop is used to loop through the entire range of inputs length
+if a value within that range is detected to be within the hash map then the left pointer is updated
+on that loop the hash map receives a "pair" ( not sure what to call them )
+  this pair has the letter specific to the index position found within the inputed string's of the current for loops iteration set as the key
+  while the value is the index position itself
+length is updated to be the max value between itself and the current size of the window which is right - left + 1
+  the +1 is necessary as if you eg did 3-2 you would get 1 but the actual length of the values would be 2 since you're accounting for two variables in that window
+length is then returned
+
+
+(oh wait the left pointer only moves if the current letter is already in the hashmap as a key ) still piecing it together in my head
