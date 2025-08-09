@@ -49,3 +49,28 @@ length is then returned
 
 
 (oh wait the left pointer only moves if the current letter is already in the hashmap as a key ) still piecing it together in my head
+
+we make use a sliding window to track the longest substring without repeating characters
+we maintain two pointers, left and right, marking the start and end of the current window
+the dictionary/hash_map maps each character to the last index where it appeared
+  it's a map to see where we last spotted each letter, we maintain a forward look through the use of max(left, right-left+1)
+  you could also skip the max check by ading an additional and condition to the if statement where you ensure that the found duplicate is greater or equal to left
+  aka hash_map[input[right]] >= left
+as we iterate through the string with the right pointer
+  if the current char was seen before (and its last ocurrence is within the current window) (wouldnt matter if you used max which i think is more elegant)
+    in this case left is moved to the position after its last ocurrence hence hash_map[input[right]] + 1
+  the dict is updated with the current index and its corresponding char value
+  the highest window length is calculated and length is updated to the highest number either itself of the current window size
+
+// v2 refinement
+
+this further refines the solution, in order to avoid a lot of repetition we use enumerate
+lines are combined by reducing the definitions in one place given they're the same
+variables renamed for clarity
+
+we define both left and max length in the same line
+char_index is the dictionary
+rather than using range of the inputs len we use enumerate which creates the iterable with the value and index in one go which makes referencing much easier to read and write
+now the if statement can just say if char in char_index instead of something like if s[right] in char_index
+the left update is also cleaner with the second expressions being char_index[char] + 1 instead of char_index[s[right]] + 1
+this pattern keeps going..
