@@ -1,0 +1,25 @@
+grow a window until there are more than k characters that dont match the starting character
+
+// revision
+
+the windows length will continue to grow as long as its condition remains valid
+condition: the (window length) - (most frequent character) > k
+k is the alloted amount of changes allowed onto a substring
+we are looking for the longest non repeating substring with a certain amount of allowed subtitutions
+
+using a sliding window approach
+left, max frequency, max length, and a hash map (count) are all defined at the beginning of the function
+
+a for loop is used onto an enumerated string for readability (not a fan of range and len combined)
+  for every character the count map is updated with a key value pair ("letter": count)
+    the character is defined as 1 if not found or its count + 1 if found
+    the max frequency is updated by the max of either itself of the current chars count
+
+    if control flow used to check if the current window's length (-) the highest char frequency is > the allowed amount of changes (k) if so:
+      the count of the character at the start of the window is reduced by one and the left pointer moves up one
+    
+    the max length is continually updated by the max of either itself of the window length, this is safe as the window will never grow beyond a valid condition
+      it checks over itself to ensure that the invalid versions do not overwrite the already found large window
+      
+
+
