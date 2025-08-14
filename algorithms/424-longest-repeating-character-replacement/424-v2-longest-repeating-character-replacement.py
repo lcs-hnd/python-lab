@@ -1,4 +1,4 @@
-#  424 v1 - longest repeating character replacement 
+#  424 v2 - longest repeating character replacement 
 # You are given a string s consisting of only uppercase english characters and an integer k. You can choose up to k characters of the string and replace them with any other uppercase English character.
 s = "XYYX"
 k = 2

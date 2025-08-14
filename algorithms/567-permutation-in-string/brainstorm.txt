@@ -1,0 +1,37 @@
+// debrief v1
+
+we are looking for a string within another string wheter in its original form or its permutated form
+(permutation allows for any character order so far inso that all characters are adjacent to each other)
+
+many cases may be emilinated through sheer string length as we look to find one string within another
+by establishing the max length of the string we look for we can return False for all cases in which the
+searched string is smaller than the string we are searching for
+
+we instantiate a future static dictionary for the string we look for
+and a dynamic one for the moving window we will utilize to find if the string is present
+
+a left marker is established as int 0 meaning index position 0 for the start of the searched string 
+
+a for loop makes use of enumerate for readability's sake and goes over the searched string
+
+every letter within the searched string is stashed as a key and has a value of 1 to begin within
+if an indentical key is found then its value is incremented by one to represent the letter's frequency
+
+since enumerate keeps track of both the index and the value the index is used as a right marker within the searched string
+the dynamic dictionary should only at most keep track of a number of characters equal to or less than the target
+
+an if statement if used to compare the window size to the length of the target
+if the window is larger than the dictionary's letter count is reduced and the window incremented from the left
+the count is reduced from the letter correspondest to the left marker's index position
+this is such since it would represent the earliest consideration within the sliding window and considerations should be made forward not backwards
+
+in the case the count reduced within that index position is identified to be 0 post reduction its presence in the dictionary is removed altogether
+it would not make sense to keep track of letter that does not exist within the window
+
+the left marker is moved up by one index position after all is compared and checked
+
+every iteration we check to see that if the window size is the same as the target's length &
+the dynamic sliding window dictionary is the same as the target's dictionary
+we would then return True
+
+otherwise if this is never the case we return False 
