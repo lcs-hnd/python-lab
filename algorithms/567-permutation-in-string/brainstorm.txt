@@ -3,7 +3,7 @@
 we are looking for a string within another string wheter in its original form or its permutated form
 (permutation allows for any character order so far inso that all characters are adjacent to each other)
 
-many cases may be emilinated through sheer string length as we look to find one string within another
+many cases may be eliminated through sheer string length as we look to find one string within another
 by establishing the max length of the string we look for we can return False for all cases in which the
 searched string is smaller than the string we are searching for
 
@@ -35,3 +35,46 @@ the dynamic sliding window dictionary is the same as the target's dictionary
 we would then return True
 
 otherwise if this is never the case we return False 
+
+// debrief v2
+
+a common trick within sliding window problems is to utilize the Counter and instead check for equivalent matches between target and search area
+at heart this is the same as a left and right markers but they look and feel more abstracted
+
+beggining with a Counter import
+we store the lengths of both strings in this case in the memory for readability as they will be called multiple times
+similar to before cases are eliminated in the event target > search area
+
+we now initialize a counter for both the target and the future dynamic window
+ count allows for a more readable solution as it handles edge cases such as the event where a nonexistant key raises an error when incremented (a dictionary with more features)
+
+matches is established as 0 as it waits to be reduced and increased until equivalency is found between the dynamic counter and the target counter
+
+enumerate is used again for similar reasons going over the search area
+
+within each loop
+  the dynamic window counter has characters added and incremented as they are seen within the search area
+
+  if current char in s2 is in the static count &
+  is also == to the value within the static count of s1 then matches will go up by 1
+  this makes sure that the count and the letter are the same between the two instances
+
+  in the case the current character is in the static count &
+  the dynamic count of said char is the same the static's + 1
+  then the matches are reduced by one as it would demonstrate that we have too much of one character regardless if it's present in the static count
+    a necessary event to account for
+  
+  as i progresses in the event it's greater or equal to length of our target string we begin to consider other events
+     we use this condition in order to reduce the amount of checks as we progress through the search area and increase the sliding window
+     there's no reason to look for certain conditions if they're not possible in the first place
+
+  when this becomes true a left marker starts to be considered, a left character
+  this character/left marker is determined by i's current position and the len's of the target string
+  through this implementation the sliding window begins to show and its left marker is dynamically determined as the for loop progresses
+  when true the left character's count in the dynamic dictionary is reduced by one every loop as the window progresses
+  whether this reduction causes equivalece between the dynamic and static dicts determines whether the matches are incremented or reduced by one 
+  
+  on every iteration the number of matches is compared to the len of the static dictionary (why? not sure why exactly)
+    if they are equal we return true
+
+  
