@@ -1,0 +1,59 @@
+ok, two strings
+each with a certain length
+looking for a substring within one of those strings that contains the other entirely including its duplicates
+both strings will consist of upper and lowercase english letters 
+their predetermined length is nominated by variables that will be assigned an integer euqal to their number of characters
+the substring must not represent duplicates through the use a single equal character, they must be quantifiably represented
+substring order is not required to match up so long as the minimum window represents all target characters
+
+it's given the correct output is always unique.
+optional: O(m + n) time as a secondary objective in neetcode.
+
+if the substring does not exist return an empty string
+
+//
+
+using a hash map to create an O(1) lookup method by making the target letters the keys and their count the value
+i should only need the value in the event all characters are satisfied to begin with
+this will use up more memory space, might switch it up if i come up with another idea
+
+using get to avoid raising a key error when a key is nonexistent
+every letter serves as a key and their value is defined as 1 through the addition after the definition
+
+... 
+
+when something has YET to be seen as a target character, yet is a very important part
+we may move point pointers together because we are looking for a minimum substring, so there's no reason to consider
+something to be the beggining of the substring in the event a possible substring hasn't even begun
+
+this could be designed with a boolean toggle switch, as in when a possible substring window has begun to develop
+the boolean switch is flipped, and so we determine that a non target character does not determine both markers must be moved
+or rather maybe, that the left marker can be moved to not consider the current character it's on
+i am not sure if i should instead opt for some other expression that does a similar job without adding variable complexity
+though it could be argued the boolean switch adds state clarity and readability to the algorithm
+
+i dont think it's necessary to keep a dictionary that gets cleared and added onto multiple times over
+the efficient approach may be to keep a dictionary for the window that removes and adds characters as the markers move
+the linear removal prevents any unnecessary clearing and allows for the search of a minimum substring at the same time
+
+...
+
+since i used enumerate it will make things a lot more readable as the index is cleary defined through the created iterator
+i am not a fan of a range, len approach as it adds a lot more writing and doesn't keep the python algorithm dictionary DRY, if im wrong correct memory
+
+the left marker is starting at index 0, but so is the right marker due to enumerate
+i could technically slice s to make right start at the index position 1, this wouldn't even disalign both markers' reference since it remains the same
+right is aware it begins on the 1st index position when enumerate is applied onto a sliced variable, i think...
+for safety reasons i won't slice it but it would be good to know for sure, because otherwise you would have to subtract from right at certain definitions
+
+...
+
+while creating the window dictionary that will be removed from and added to as the window progresses
+the same format should be utizilied as the instant lookup from before as we will compare the two for the 
+
+...
+
+when checking for a key's presence in a hash map, should in be used or rather...
+in this instance we are checking for a character's presence as a key in a dictionary
+we can use if char in target... right?
+not sure if that's improper syntax.
